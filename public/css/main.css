@@ -202,3 +202,166 @@ span {
 	display: inline;
 	margin: 0;
 }
+
+/** Index2 Styling **/
+
+.header{
+  background-color:black;
+  width:100%;
+  height:40px;
+  text-align:right;
+}
+.header ul{
+  margin:0 60px 0 0;
+  display:inline-block;
+}
+.header ul li{
+  display:inline-block;
+  color:white;
+  margin: 0 30px 0 30px;
+}
+.header ul li a{
+  text-decoration:none;
+  color:white;
+  font-size:30px;
+  padding:0px 10px 5px 10px;
+}
+.header ul li a:hover{
+  background-color:brown;
+}
+.welcome{
+  float:left;
+  display:inline-block;
+  text-align:left;
+}
+.welcome p{
+  padding-left:40px;
+  margin:0;
+  font-size:32px;
+  color:white;
+}
+.main{
+  width:100%;
+  background-color:white;
+  margin-bottom:100px;
+  text-align:center;
+}
+.pollList{
+  width:400px;
+  background-color:white;
+  margin:100px auto 0 auto;
+  border: 1px solid black;
+}
+.pollListHeader{
+  width:100%;
+  height:50px;
+  background-color:gray;
+  text-align:center;
+}
+.pollListHeader h1{
+  padding:5px 0 0 0;
+  margin:0;
+}
+.pollRecord{
+  width:100%;
+  height:50px;
+  border-bottom:1px solid black;
+  margin:auto;
+  text-align:center;
+  transition:background-color 0.5s;
+}
+.pollRecord:hover{
+  background-color:lightblue;
+}
+.pollRecord p{
+  margin:0;
+  padding-top:12px;
+}
+
+#newPollForm{
+  margin-top:100px;
+}
+input[type=text], select, textarea {
+    width: 500px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+#choice3box{
+  display:none;
+}
+#choice4box{
+  display:none;
+}
+#choice5box{
+  display:none;
+}
+#choice6box{
+  display:none;
+}
+#choice7box{
+  display:none;
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+.pollData{
+  width:400px;
+  background-color:white;
+  margin:100px 0 0 150px;
+  border: 1px solid black;
+  display:inline-block;
+  float:left;
+}
+.pollHeader{
+  width:100%;
+  background-color:gray;
+  text-align:center;
+  min-height:50px;
+}
+.pollHeader h3{
+  padding-top:10px;
+  margin:0;
+}
+.pollDataRecord{
+  width:100%;
+  height:50px;
+  border-bottom:1px solid black;
+  margin:auto;
+  text-align:center;
+  transition:background-color 0.5s;
+}
+.pollDataRecord:hover{
+  background-color:lightblue;
+}
+.pollDataRecord p{
+  margin:0;
+  padding-top:12px;
+}
+.pollChart{
+  height:300px;
+  width:400px;
+  margin:100px 150px 0 0;
+  float:right;
+  display:inline-block;
+  border:1px solid black;
+}
+.voteoption{
+  width:100%;
+  height:50px;
+  text-align:center;
+  background:none;
+  border:none;
+  border-bottom:1px solid black;
+  transition:background-color 0.5s;
+  font-size:15px;
+}
+.voteoption:hover{
+  background-color:lightblue;
+}
+button:focus {outline:0;}

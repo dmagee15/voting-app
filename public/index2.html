@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Voting App</title>
+		
+		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+	</head>
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	<body>
+<div class="header">
+    <div class="welcome">
+    <p id="logstatus">Not logged in</p>
+  </div>
+  <ul>
+    <li><a href="/yourpolls">Your Polls</a></li>
+    <li><a href="/newpoll">New Poll</a></li>
+    <li><a id="loginlink" href="/login"><span id="loginout">Login</span></a></li>
+  </ul>
+</div>
+
+<div class="main">
+  <div class="pollList" id="pollList">
+    <div class="pollListHeader">
+      <h1>List of Polls</h1>
+    </div>
+    
+  </div>
+</div>
+		
+		<script type="text/javascript" src="common/ajax-functions.js"></script>
+		<script type="text/javascript" src="controllers/clickController.client.js"></script>
+		<script type="text/javascript" src="controllers/userController.client.js"></script>
+		<script type="text/javascript" src="controllers/renderPollList.client.js"></script>
+	</body>
+
+</html>
