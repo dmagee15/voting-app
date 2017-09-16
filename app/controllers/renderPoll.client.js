@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+/*(function () {
     var apiUrl = appUrl + '/api/:id';
     var regex = /[\w\d]{24}/;
     var url = window.location.href;
@@ -50,7 +50,9 @@
          
       });
                
-               
+               form(action='/vote/'+pollId+'/'+options[2]+'/'+user.github.username, method='POST')
+                  button.voteoption(name='mysubmitbutton', type='submit')
+                     option[0]+": "+option[1]
             });
          }else{
             console.log("logged out");
@@ -97,3 +99,4 @@
    
 })();
 
+*/

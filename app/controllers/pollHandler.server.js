@@ -43,16 +43,69 @@ function pollHandler () {
 		Poll
 			.find({author:req.user.github.username}, function(err,result){
 				if(err){throw err}
-				res.json(result);
+//				res.json(result);
+				res.render('yourPolls', {
+					user: req.user,
+					polls: result
+				});
 			});
 	};
 	
 	this.getPoll = function (req, res) {
 		Poll
-			.find({_id:req.params.poll}, function(err,result){
+			.find({_id:req.params.id}, function(err,result){
 				if(err){throw err}
-	
-				res.json(result);
+				var array = [];
+				if(result[0].option7!=''){
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+					array.push([result[0].option3,result[0].option3Num, "option3"]);
+					array.push([result[0].option4,result[0].option4Num, "option4"]);
+					array.push([result[0].option5,result[0].option5Num, "option5"]);
+					array.push([result[0].option6,result[0].option6Num, "option6"]);
+					array.push([result[0].option7,result[0].option7Num, "option7"]);
+				}
+				else
+				if(result[0].option6!=''){
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+					array.push([result[0].option3,result[0].option3Num, "option3"]);
+					array.push([result[0].option4,result[0].option4Num, "option4"]);
+					array.push([result[0].option5,result[0].option5Num, "option5"]);
+					array.push([result[0].option6,result[0].option6Num, "option6"]);
+				}
+				else
+				if(result[0].option5!=''){
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+					array.push([result[0].option3,result[0].option3Num, "option3"]);
+					array.push([result[0].option4,result[0].option4Num, "option4"]);
+					array.push([result[0].option5,result[0].option5Num, "option5"]);
+				}
+				else
+				if(result[0].option4!=''){
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+					array.push([result[0].option3,result[0].option3Num, "option3"]);
+					array.push([result[0].option4,result[0].option4Num, "option4"]);
+				}
+				else
+				if(result[0].option3!=''){
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+					array.push([result[0].option3,result[0].option3Num, "option3"]);
+				}
+				else{
+					array.push([result[0].option1,result[0].option1Num,"option1"]);
+					array.push([result[0].option2,result[0].option2Num, "option2"]);
+				}
+				console.log(req.user);
+				res.render('viewPoll', {
+					user:req.user,
+					question:result[0].question,
+					options:array,
+					pollId: req.params.id
+				});
 			});
 	};
 	

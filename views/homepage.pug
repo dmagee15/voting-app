@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title Voting App
+    link(href='/public/css/main.css', rel='stylesheet', type='text/css')
+  script(src='//code.jquery.com/jquery-1.11.2.min.js')
+  script(src='//code.jquery.com/jquery-migrate-1.2.1.min.js')
+  body
+    .header
+      .welcome
+        if user != null
+            p#logstatus Logged in as: #{user.github.username}
+        else
+            p#logstatus Not logged in
+      ul
+        li
+          a(href='/yourpolls') Your Polls
+        li
+          a(href='/newpoll') New Poll
+        li
+          if user != null
+             a#loginlink(href='/logout')
+               span#loginout Logout
+          else
+             a#loginlink(href='/login')
+               span#loginout Login
+    .main
+      #pollList.pollList
+        .pollListHeader
+          h1 List of Polls
+    script(type='text/javascript', src='common/ajax-functions.js')
+    script(type='text/javascript', src='controllers/clickController.client.js')
+    script(type='text/javascript', src='controllers/userController.client.js')
+    script(type='text/javascript', src='controllers/renderPollList.client.js')

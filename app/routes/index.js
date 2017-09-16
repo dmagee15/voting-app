@@ -15,23 +15,28 @@ module.exports = function (app, passport) {
 
 	var pollHandler = new PollHandler();
 	
-	app.route('/')
+/*	app.route('/')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/index2.html');
 		});
-		
+*/
+	app.route('/')
+		.get(function (req, res) {
+			res.render('homepage', {
+				user:req.user
+			});
+		});
+	
 	app.route('/renderPollList')
 		.get(pollHandler.getPolls);
 		
-	app.route('/renderYourPolls')
-		.get(pollHandler.getYourPolls);
+//	app.route('/renderYourPolls')
+//		.get(pollHandler.getYourPolls);
 		
 	app.route('/polls/:id')
-		.get(function(req,res){
-			res.sendFile(path + '/public/viewPoll.html');
-		});
+		.get(pollHandler.getPoll);
 		
-	app.route('/polls/vote/:pollId/:option/:username')
+	app.route('/vote/:pollId/:option/:username')
 		.post(pollHandler.vote);
 		
 	app.route('/getPollData/:poll')
@@ -44,14 +49,14 @@ module.exports = function (app, passport) {
 		
 	app.route('/newpoll')
 		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/newPoll.html');
+			res.render('newPoll', {
+				user: req.user
+			});
 		});
 		
 		
 	app.route('/yourpolls')
-		.get(isLoggedIn, function (req, res) {
-			res.sendFile(path + '/public/yourPolls.html');
-		});
+		.get(isLoggedIn, pollHandler.getYourPolls);
 		
 		app.route('/submitpoll')
 		.post(isLoggedIn, pollHandler.saveFirstPoll);
