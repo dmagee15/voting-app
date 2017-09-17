@@ -4,7 +4,7 @@ var Poll = require('../models/polls.js');
 
 function pollHandler () {
 	
-	//Poll.find({}).remove().exec();
+//	Poll.find({}).remove().exec();
 	
 	this.saveFirstPoll = function (req, res) {
 		var firstPoll = new Poll({
@@ -46,7 +46,7 @@ function pollHandler () {
 //				res.json(result);
 				res.render('yourPolls', {
 					user: req.user,
-					polls: result
+					polls: result.reverse()
 				});
 			});
 	};
@@ -99,7 +99,7 @@ function pollHandler () {
 					array.push([result[0].option1,result[0].option1Num,"option1"]);
 					array.push([result[0].option2,result[0].option2Num, "option2"]);
 				}
-				console.log(req.user);
+
 				res.render('viewPoll', {
 					user:req.user,
 					question:result[0].question,
@@ -111,18 +111,17 @@ function pollHandler () {
 	
 	this.vote = function (req, res) {
 		var optionNumString = req.params.option+"Num";
-		console.log(optionNumString);
+
 		Poll
 			.find({_id:req.params.pollId}).find({'voters':req.params.username}, function(err,data){
 				if(err){throw err;}
-				console.log(data.length);
+
 				if(data.length==0){
-					console.log("update triggered");
+
 					Poll
 					.findOneAndUpdate({_id:req.params.pollId}, {$inc: {[optionNumString]:1}, $push: {"voters": req.params.username}}, function(err, results){
 						if(err){throw err;}
-						console.log("find triggered");
-						console.log(results);
+
 						res.redirect('back');
 					});
 				}
@@ -137,7 +136,7 @@ function pollHandler () {
 		Poll
 			.find({'voters':req.params.username}, function(err,data){
 				if(err){throw err;}
-				console.log(data);
+
 			});
 		Poll
 			.findOneAndUpdate({ 'github.id': req.user.github.id }, { $inc: { 'nbrClicks.clicks': 1 } })
