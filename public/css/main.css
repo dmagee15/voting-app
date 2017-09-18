@@ -244,6 +244,7 @@ span {
   width:900px;
   margin: 0 auto 100px auto;
   text-align:center;
+  position:relative;
 }
 .pollList{
   width:400px;
@@ -364,3 +365,9 @@ a{
   background-color:lightblue;
 }
 button:focus {outline:0;}
+.deleteButton{
+  position:absolute;
+  height:45px;
+  margin-left:210px;
+  margin-top:-50px;
+}

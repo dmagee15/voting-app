@@ -150,13 +150,9 @@ function pollHandler () {
 
 	this.deletePoll = function (req, res) {
 		Poll
-			.findOneAndUpdate({ 'github.id': req.user.github.id }, { 'nbrClicks.clicks': 0 })
-			.exec(function (err, result) {
-					if (err) { throw err; }
-
-					res.json(result.nbrClicks);
-				}
-			);
+			.find({ '_id': req.params.id })
+			.remove().exec();
+			res.redirect('back');
 	};
 
 }

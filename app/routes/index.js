@@ -58,6 +58,9 @@ module.exports = function (app, passport) {
 	app.route('/yourpolls')
 		.get(isLoggedIn, pollHandler.getYourPolls);
 		
+	app.route('/delete/:id')
+		.post(isLoggedIn, pollHandler.deletePoll);
+		
 		app.route('/submitpoll')
 		.post(isLoggedIn, pollHandler.saveFirstPoll);
 

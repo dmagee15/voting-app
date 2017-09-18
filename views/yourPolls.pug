@@ -34,4 +34,6 @@ html
             a(href='/polls/'+poll._id)
                 div.pollRecord
                     p= poll.question
+            form(action='/delete/'+poll._id, method='POST')
+              button.deleteButton(type='submit') Delete
 
