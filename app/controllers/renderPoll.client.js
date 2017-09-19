@@ -4,6 +4,11 @@ var question = document.getElementById("pollQuestion").innerHTML;
 var wordregex = /^[\w]*[^:]/;
 var numregex = /[\d]*$/;
 
+function showForm(){
+    document.getElementById("newOptionForm").style.display = 'inline';
+    document.getElementById("pollAddOption").style.display = 'none';
+}
+
 var labelArray = [];
 var colorArray = [];
 var dataArray = [];

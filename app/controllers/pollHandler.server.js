@@ -131,6 +131,46 @@ function pollHandler () {
 				}
 			});
 	};
+	
+	this.addOption = function (req, res) {
+
+		Poll
+			.find({_id:req.params.pollId}, function(err,data){
+				if(err){throw err;}
+				
+				if(!data[0].option3){
+					Poll.update({ _id: req.params.pollId }, { $set: { option3: req.body.newOption }}, function(err){
+						if(err){throw err;}
+						res.redirect('back');
+					});
+				}
+				else if(!data[0].option4){
+					Poll.update({ _id: req.params.pollId }, { $set: { option4: req.body.newOption }}, function(err){
+						if(err){throw err;}
+						res.redirect('back');
+					});
+				}
+				else if(!data[0].option5){
+					Poll.update({ _id: req.params.pollId }, { $set: { option5: req.body.newOption }}, function(err){
+						if(err){throw err;}
+						res.redirect('back');
+					});
+				}
+				else if(!data[0].option6){
+					Poll.update({ _id: req.params.pollId }, { $set: { option6: req.body.newOption }}, function(err){
+						if(err){throw err;}
+						res.redirect('back');
+					});
+				}
+				else if(!data[0].option7){
+					Poll.update({ _id: req.params.pollId }, { $set: { option7: req.body.newOption }}, function(err){
+						if(err){throw err;}
+						res.redirect('back');
+					});
+				}
+				
+			});
+	};
 
 	this.addPoll = function (req, res) {
 		Poll

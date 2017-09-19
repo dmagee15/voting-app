@@ -242,9 +242,10 @@ span {
 }
 .main{
   width:900px;
-  margin: 0 auto 100px auto;
+  margin: 0 auto 0 auto;
   text-align:center;
   position:relative;
+  overflow:auto;
 }
 .pollList{
   width:400px;
@@ -316,7 +317,7 @@ a{
   margin:100px 0 0 0;
   border: 1px solid black;
   display:inline-block;
-  float:left;
+  vertical-align:top;
 }
 .pollHeader{
   width:100%;
@@ -347,7 +348,6 @@ a{
   height:400px;
   width:400px;
   margin:100px 0 0 0;
-  float:right;
   display:inline-block;
   border:1px solid black;
 }
@@ -370,4 +370,33 @@ button:focus {outline:0;}
   height:45px;
   margin-left:210px;
   margin-top:-50px;
+}
+#pollAddOption{
+  display:block;
+  margin:auto;
+}
+.addOptionDiv{
+  width:400px;
+  margin: 0 auto 0 auto;
+  text-align:center;
+  position:relative;
+  overflow:auto;
+}
+.pollContainer{
+  display:inline-block;
+  vertical-align:top;
+}
+#newOption{
+  width:335px;
+  display:inline-block;
+  margin-top:0px;
+}
+#newOptionSubmit{
+  display:inline-block;
+  width:60px;
+  height:40px;
+  margin-left:5px;
+}
+#newOptionForm{
+  display:none;
 }

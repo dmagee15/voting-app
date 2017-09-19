@@ -27,16 +27,22 @@ html
              a#loginlink(href='/login')
                span#loginout Login
     .main
-      .pollData
-        .pollHeader
-          h3#pollQuestion #{question}
-        if user != null  
-          for option in options
-            form(action='/vote/'+pollId+'/'+option[2]+'/'+user.github.username, method='POST')
+      .pollContainer
+        .pollData
+          .pollHeader
+            h3#pollQuestion #{question}
+          if user != null  
+            for option in options
+              form(action='/vote/'+pollId+'/'+option[2]+'/'+user.github.username, method='POST')
+                button.voteoption(id=option[2], name='mysubmitbutton', .)= option[0]+": "+option[1]
+          else
+            for option in options
               button.voteoption(id=option[2], name='mysubmitbutton', type='submit')= option[0]+": "+option[1]
-        else
-          for option in options
-            button.voteoption(id=option[2], name='mysubmitbutton', type='submit')= option[0]+": "+option[1]
+        .addOptionDiv
+          form#newOptionForm(action='/addnewoption/'+pollId, method='POST')
+            input#newOption(type='text', name='newOption', placeholder='New Choice')
+            input#newOptionSubmit(type='submit', value='Submit')
+          button(id='pollAddOption', style='float:left', onclick='showForm()') Add Choice
       .pollChart
         canvas#myChart(width='400px', height='400px')
     script(type='text/javascript', src='../controllers/Chart.js')

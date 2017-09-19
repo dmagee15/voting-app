@@ -39,6 +39,9 @@ module.exports = function (app, passport) {
 	app.route('/vote/:pollId/:option/:username')
 		.post(pollHandler.vote);
 		
+	app.route('/addnewoption/:pollId')
+		.post(pollHandler.addOption);
+		
 	app.route('/getPollData/:poll')
 		.get(pollHandler.getPoll);
 
