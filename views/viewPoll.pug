@@ -38,13 +38,13 @@ html
           else
             for option in options
               button.voteoption(id=option[2], name='mysubmitbutton', type='submit')= option[0]+": "+option[1]
-        .addOptionDiv
-          form#newOptionForm(action='/addnewoption/'+pollId, method='POST')
-            input#newOption(type='text', name='newOption', placeholder='New Choice')
-            input#newOptionSubmit(type='submit', value='Submit')
-          button(id='pollAddOption', style='float:left', onclick='showForm()') Add Choice
+        if addOption == null
+          .addOptionDiv
+            form#newOptionForm(action='/addnewoption/'+pollId, method='POST')
+              input#newOption(type='text', name='newOption', placeholder='New Choice')
+              input#newOptionSubmit(type='submit', value='Submit')
+            button(id='pollAddOption', style='float:left', onclick='showForm()') Add Choice
       .pollChart
         canvas#myChart(width='400px', height='400px')
     script(type='text/javascript', src='../controllers/Chart.js')
-    script(type='text/javascript', src='../common/ajax-functions.js')
     script(type='text/javascript', src='../controllers/renderPoll.client.js')

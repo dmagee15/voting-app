@@ -35,7 +35,10 @@ function pollHandler () {
 		Poll
 			.find({}, function(err,result){
 				if(err){throw err}
-				res.json(result);
+				res.render('homepage', {
+					user: req.user,
+					polls: result.reverse()
+				});
 			});
 	};
 	
@@ -56,6 +59,7 @@ function pollHandler () {
 			.find({_id:req.params.id}, function(err,result){
 				if(err){throw err}
 				var array = [];
+				var addOptionFlag = null;
 				if(result[0].option7!=''){
 					array.push([result[0].option1,result[0].option1Num,"option1"]);
 					array.push([result[0].option2,result[0].option2Num, "option2"]);
@@ -64,6 +68,7 @@ function pollHandler () {
 					array.push([result[0].option5,result[0].option5Num, "option5"]);
 					array.push([result[0].option6,result[0].option6Num, "option6"]);
 					array.push([result[0].option7,result[0].option7Num, "option7"]);
+					addOptionFlag = "Full";
 				}
 				else
 				if(result[0].option6!=''){
@@ -104,7 +109,8 @@ function pollHandler () {
 					user:req.user,
 					question:result[0].question,
 					options:array,
-					pollId: req.params.id
+					pollId: req.params.id,
+					addOption: addOptionFlag
 				});
 			});
 	};

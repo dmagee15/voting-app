@@ -21,11 +21,7 @@ module.exports = function (app, passport) {
 		});
 */
 	app.route('/')
-		.get(function (req, res) {
-			res.render('homepage', {
-				user:req.user
-			});
-		});
+		.get(pollHandler.getPolls);
 	
 	app.route('/renderPollList')
 		.get(pollHandler.getPolls);
