@@ -11,5 +11,4 @@
 7. As an unauthenticated or authenticated user, I can see the results of polls in chart form.
 8. As an authenticated user, if I don't like the options on a poll, I can create a new option.
 
-## This is a voting app that allows you to create polls as an authenticated github user and then share the link
-## with your friends to vote.
+## This is a voting app that allows you to create polls as an authenticated github user and then share the link with your friends to vote.
