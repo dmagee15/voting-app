@@ -394,11 +394,15 @@ button:focus {outline:0;}
   font-family: Tahoma;
   border-radius: 5px;
   border: 1px solid black;
-  background-color: white;
+  background: none;
+  transition:background-color 0.5s;
 }
 .deleteButton img{
   height: 30px;
   width: 30px;
+}
+.deleteButton:hover{
+  background-color:red;
 }
 #pollAddOption{
   display:block;
