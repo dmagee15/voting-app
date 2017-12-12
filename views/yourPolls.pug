@@ -33,5 +33,6 @@ html
                 div.pollRecord
                     p= poll.question
             form(action='/delete/'+poll._id, method='POST')
-              button.deleteButton(type='submit') Delete
+              button.deleteButton(type='submit')
+                img(src='../public/img/iconmonstr-x-mark-1-48.png')
 

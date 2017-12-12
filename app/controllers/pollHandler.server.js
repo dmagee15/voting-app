@@ -104,13 +104,20 @@ function pollHandler () {
 					array.push([result[0].option1,result[0].option1Num,"option1"]);
 					array.push([result[0].option2,result[0].option2Num, "option2"]);
 				}
+				var alreadyVoted = false;
+				if(Boolean(req.user)){
+					if(result[0].voters.indexOf(req.user.github.username)!=-1){
+					alreadyVoted = true;
+					}
+				}
 
 				res.render('viewPoll', {
 					user:req.user,
 					question:result[0].question,
 					options:array,
 					pollId: req.params.id,
-					addOption: addOptionFlag
+					addOption: addOptionFlag,
+					alreadyVoted: alreadyVoted
 				});
 			});
 	};
