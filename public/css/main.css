@@ -246,6 +246,7 @@ span {
   text-align:center;
   position:relative;
   overflow:auto;
+  min-height: 100vh;
 }
 .pollList{
   width:400px;
