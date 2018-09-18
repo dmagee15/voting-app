@@ -357,7 +357,8 @@ a{
   margin:100px 0 0 0;
   display:inline-block;
   border:1px solid black;
-  box-shadow: 0 5px 10px rgba(0,0,0.0.3);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  background: white;
 }
 .voteoption{
   width:100%;
