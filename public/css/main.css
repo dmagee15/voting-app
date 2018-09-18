@@ -247,7 +247,7 @@ span {
   position:relative;
   overflow:auto;
   min-height: 100vh;
-  background: radial-gradient(circle at 100% 0%, rgb(239, 216, 255), rgb(148, 164, 255), rgb(240, 105, 252));
+  background: linear-gradient(to right, #457fca, #5691c8);
 }
 .pollList{
   width:400px;
